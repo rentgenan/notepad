@@ -7,15 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model
+class Folder extends Model
 {
     use HasFactory;
     use HasUuids;
     use SoftDeletes;
 
     protected $fillable = [
-        'username',
-        'email',
+        'name',
     ];
 
     public function note()

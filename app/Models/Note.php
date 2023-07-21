@@ -7,19 +7,24 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model
+class Note extends Model
 {
     use HasFactory;
     use HasUuids;
     use SoftDeletes;
 
     protected $fillable = [
-        'username',
-        'email',
+        'title',
+        'content',
     ];
 
-    public function note()
+    public function user()
     {
-        return $this->hasMany(Note::class);
+        return $this->belongsTo(User::class);
+    }
+    
+    public function folder()
+    {
+        return $this->belongsTo(Folder::class);
     }
 }
